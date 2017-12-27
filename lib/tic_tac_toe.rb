@@ -10,6 +10,8 @@ class TicTacToe
     [2,4,6] # right diagonal
   ]
 
+  attr_accessor :index
+  
   def initialize
     @board = Array.new(9, " ")
   end
