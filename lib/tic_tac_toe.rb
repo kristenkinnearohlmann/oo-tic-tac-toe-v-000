@@ -100,10 +100,10 @@ class TicTacToe
     checkPositions = positions.select do |index|
       position_taken?(index)
     end
-    if checkPositions.empty?
-      false
-    else
+    if checkPositions.count == 9
       true
+    else
+      false
     end
   end
 
