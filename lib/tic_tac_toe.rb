@@ -10,8 +10,6 @@ class TicTacToe
     [2,4,6] # right diagonal
   ]
 
-  attr_accessor :index
-
   def initialize
     @board = Array.new(9, " ")
   end
@@ -29,20 +27,20 @@ class TicTacToe
     input.to_i-1
   end
 
-  def move(character="X")
-    @board[@index] = character
+  def move(index,character="X")
+    @board[index] = character
   end
 
-  def position_taken?
-    if (@board[@index] == " " || @board[@index] == "" || @board[@index] == nil)
+  def position_taken?(index)
+    if (@board[index] == " " || @board[index] == "" || @board[index] == nil)
       false
-    elsif (@board[@index] == "X" || @board[@index] == "O")
+    elsif (@board[index] == "X" || @board[index] == "O")
       true
     end
   end
 
-  def valid_move?
-    if (@index.between?(0,8) && !position_taken?)
+  def valid_move?(index)
+    if (index.between?(0,8) && !position_taken?(index))
       true
     else
       false
@@ -68,10 +66,10 @@ class TicTacToe
   def turn
     puts "Please enter 1-9:"
     input = gets.strip
-    @index = input_to_index(input)
+    index = input_to_index(input)
 
-    if valid_move?
-      move(current_player)
+    if valid_move?(index)
+      move(index,current_player)
       display_board
     else
       turn
@@ -100,7 +98,7 @@ class TicTacToe
   def full?
     positions=[0,1,2,3,4,5,6,7,8]
     checkPositions = positions.select do |index|
-      position_taken?
+      position_taken?(index)
     end
     if checkPositions.length == 9
       true
