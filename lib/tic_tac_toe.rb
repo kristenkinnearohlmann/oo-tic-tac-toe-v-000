@@ -57,6 +57,11 @@ class TicTacToe
     end
     counter
   end
+
+  def current_player
+    turns = turn_count
+    turns.even? ? "X" : "O"
+  end
   
   def turn
     puts "Please enter 1-9:"
@@ -70,5 +75,5 @@ class TicTacToe
       turn
     end
   end
-  
+
 end
