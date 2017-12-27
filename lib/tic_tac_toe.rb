@@ -94,5 +94,11 @@ class TicTacToe
       end
     end
   end
-  
+
+  def full?
+    positions=[0,1,2,3,4,5,6,7,8]
+    checkPositions = positions.select do |index|
+      position_taken?(index)
+    end
+    
 end
