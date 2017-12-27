@@ -107,4 +107,16 @@ class TicTacToe
     end
   end
 
+  def draw?
+    # true if board not won and full
+    # false if board not won and not full
+    # false if board is won
+    if (!won? && full?)
+      true
+    elsif (!(won? && full?) || (won?))
+      false
+    else
+    end
+  end
+
 end
